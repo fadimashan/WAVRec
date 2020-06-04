@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/splashFragment">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="se.mobileinteraction.mp3player.ui.Recorder.RecorderFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_mp3_recorder" >
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/play_list_fragment"
+        android:name="se.mobileinteraction.mp3player.ui.Player.PlayerFragment"
+        android:label="@string/title_dashboard"
+         >
+        <action
+            android:id="@+id/action_play_list_fragment_to_navigation_notifications"
+            app:destination="@id/wav_recorder" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="se.mobileinteraction.mp3player.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_wavRecorderFragment"
+            app:destination="@id/wavRecorderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="se.mobileinteraction.mp3player.ui.login.SplashFragment"
+        android:label="fragment_splash"
+        app:launchSingleTop="true"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_wavRecorderFragment"
+            app:destination="@id/wavRecorderFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="se.mobileinteraction.mp3player.MainActivity"
+        android:label="MainActivity" />
+    <action
+        android:id="@+id/action_to_loginFragment"
+        app:destination="@+id/loginFragment"/>
+
+    <action
+        android:id="@+id/action_to_editDialog"
+        app:destination="@+id/editDialog"/>
+    <fragment
+        android:id="@+id/wavRecorderFragment"
+        android:name="se.mobileinteraction.mp3player.ui.WavRecorder.WavRecorderFragment"
+        android:label="WavRecorderFragment" />
+    <fragment
+        android:id="@+id/storageFragment"
+        android:name="se.mobileinteraction.mp3player.ui.Storage.StorageFragment"
+        android:label="storage_fragment"
+        tools:layout="@layout/storage_layout" >
+        <action
+            android:id="@+id/action_storageFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+
+</navigation>
